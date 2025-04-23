@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Riversoljax - Etiqueta Nutricional</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    h1 {
+      color: #2d6a4f;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="number"] {
+      width: 100px;
+      padding: 5px;
+      margin-left: 10px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #40916c;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 30px;
+      border: 1px solid #ccc;
+      padding: 20px;
+      width: 350px;
+    }
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #result, #result * {
+        visibility: visible;
+      }
+      #result {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      #result button {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Riversoljax - Etiqueta Nutricional</h1>
+
+  <form method="POST">
+    <div class="section">
+      <h2>Proteína</h2>
+      <label>
+        Selecciona:
+        <select name="proteina">
+          <option value="">-- Elegir --</option>
+          <option value="pollo">Pollo</option>
+          <option value="res">Res</option>
+          <option value="salmon">Salmón</option>
+          <option value="tilapia">Tilapia</option>
+          <option value="camarones">Camarones</option>
+        </select>
+        Oz: <input type="number" name="proteina_gramos" min="0" value="0">
+      </label>
+    </div>
+
+    <div class="section">
+      <h2>Carbohidratos</h2>
+      <label>
+        Selecciona:
+        <select name="carbohidrato">
+          <option value="">-- Elegir --</option>
+          <option value="boniato">Boniato</option>
+          <option value="papa_blanca">Papa blanca</option>
+          <option value="papa_roja">Papa roja</option>
+          <option value="arroz">Arroz blanco</option>
+          <option value="pasta">Pasta Penne Barilla Protein</option>
+          <option value="quinoa">Quinoa</option>
+          <option value="coliflor">Coliflor</option>
+        </select>
+        Oz: <input type="number" name="carbohidrato_gramos" min="0" value="0">
+      </label>
+    </div>
+
+    <div class="section">
+      <h2>Vegetales</h2>
+      <label>
+        Selecciona:
+        <select name="vegetal">
+          <option value="">-- Elegir --</option>
+          <option value="brocoli">Brócoli</option>
+          <option value="zuchini">Zuchini</option>
+          <option value="esparragos">Espárragos</option>
+          <option value="coles">Coles de Bruselas</option>
+          <option value="espinacas">Espinacas</option>
+          <option value="pepino">Pepino</option>
+          <option value="green_beans">Green Beans</option>
+        </select>
+        Oz: <input type="number" name="vegetal_gramos" min="0" value="0">
+      </label>
+    </div>
+
+    <button type="submit">Agregar y Calcular</button>
+  </form>
+
+  <div id="result">
+    {% if etiqueta %}
+      <div style="text-align: center; margin-bottom: 15px;">
+        <img src="/static/logo.png" alt="Riversoljax Logo" style="height: 140px;">
+      </div>
+
+      {% if resumen %}
+        <p style="margin-bottom: 15px;"><strong>Plato:</strong> {{ resumen }}</p>
+      {% endif %}
+
+      <h2 style="margin: 0;">Etiqueta Nutricional</h2>
+      <p><strong>Calorías:</strong> {{ etiqueta.calorias | round }} kcal</p>
+      <p><strong>Proteína:</strong> {{ etiqueta.proteina | round }} g</p>
+      <p><strong>Grasa:</strong> {{ etiqueta.grasa | round }} g</p>
+      <p><strong>Carbohidratos:</strong> {{ etiqueta.carbohidratos | round }} g</p>
+      <p><strong>Sodio:</strong> {{ etiqueta.sodio | round }} mg</p>
+      <button onclick="window.print()">Imprimir</button>
+    {% endif %}
+  </div>
+</body>
+</html>
