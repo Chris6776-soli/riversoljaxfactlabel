@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Riversoljax - Etiqueta Nutricional</title>
   <style>
     body {
@@ -23,20 +23,56 @@
       padding: 5px;
       margin-left: 10px;
     }
+
+    /* Form buttons side by side */
+    form {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
     button {
-      margin-top: 20px;
       padding: 10px 20px;
       background-color: #40916c;
       color: white;
       border: none;
       cursor: pointer;
     }
+
+    /* Label container sized for 2" x 3.1" label */
     #result {
-      margin-top: 30px;
+      margin-top: 20px;
       border: 1px solid #ccc;
-      padding: 20px;
-      width: 350px;
+      width: 144px;  /* 2 inches * 72dpi */
+      height: 223px; /* 3.1 inches * 72dpi */
+      padding: 5px 8px;
+      box-sizing: border-box;
+      text-align: center;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
     }
+
+    /* Logo smaller to fit label */
+    #result img {
+      height: 80px;
+      margin-bottom: 8px;
+    }
+
+    #result h2 {
+      margin: 0 0 8px 0;
+      font-size: 14px;
+    }
+
+    #result p {
+      margin: 3px 0;
+      line-height: 1.2;
+    }
+
+    /* Print styles */
     @media print {
       body * {
         visibility: hidden;
@@ -48,9 +84,16 @@
         position: absolute;
         top: 0;
         left: 0;
+        margin: 0;
+        border: none;
+        width: 144px;
+        height: 223px;
+        padding: 5px 8px;
+        box-sizing: border-box;
       }
-      #result button {
-        display: none;
+      /* Hide buttons on print */
+      button {
+        display: none !important;
       }
     }
   </style>
@@ -71,7 +114,7 @@
           <option value="tilapia">Tilapia</option>
           <option value="camarones">Camarones</option>
         </select>
-        Oz: <input type="number" name="proteina_gramos" min="0" value="0">
+        Oz: <input type="number" name="proteina_gramos" min="0" value="0" />
       </label>
     </div>
 
@@ -89,7 +132,7 @@
           <option value="quinoa">Quinoa</option>
           <option value="coliflor">Coliflor</option>
         </select>
-        Oz: <input type="number" name="carbohidrato_gramos" min="0" value="0">
+        Oz: <input type="number" name="carbohidrato_gramos" min="0" value="0" />
       </label>
     </div>
 
@@ -107,30 +150,29 @@
           <option value="pepino">Pepino</option>
           <option value="green_beans">Green Beans</option>
         </select>
-        Oz: <input type="number" name="vegetal_gramos" min="0" value="0">
+        Oz: <input type="number" name="vegetal_gramos" min="0" value="0" />
       </label>
     </div>
 
     <button type="submit">Agregar y Calcular</button>
+    {% if etiqueta %}
+      <button type="button" onclick="window.print()">Imprimir</button>
+    {% endif %}
   </form>
 
   <div id="result">
     {% if etiqueta %}
-      <div style="text-align: center; margin-bottom: 15px;">
-        <img src="/static/logo.png" alt="Riversoljax Logo" style="height: 140px;">
-      </div>
-
+      <img src="/static/logo.png" alt="Riversoljax Logo" />
       {% if resumen %}
-        <p style="margin-bottom: 15px;"><strong>Plato:</strong> {{ resumen }}</p>
+        <p><strong>Plato:</strong> {{ resumen }}</p>
       {% endif %}
 
-      <h2 style="margin: 0;">Etiqueta Nutricional</h2>
+      <h2>Etiqueta Nutricional</h2>
       <p><strong>Calorías:</strong> {{ etiqueta.calorias | round }} kcal</p>
       <p><strong>Proteína:</strong> {{ etiqueta.proteina | round }} g</p>
       <p><strong>Grasa:</strong> {{ etiqueta.grasa | round }} g</p>
       <p><strong>Carbohidratos:</strong> {{ etiqueta.carbohidratos | round }} g</p>
       <p><strong>Sodio:</strong> {{ etiqueta.sodio | round }} mg</p>
-      <button onclick="window.print()">Imprimir</button>
     {% endif %}
   </div>
 </body>
