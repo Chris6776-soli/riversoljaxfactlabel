@@ -8,21 +8,26 @@
       font-family: Arial, sans-serif;
       margin: 30px;
     }
+
     h1 {
       color: #2d6a4f;
     }
+
     .section {
       margin-bottom: 20px;
     }
+
     label {
       display: block;
       margin-top: 10px;
     }
+
     input[type="number"] {
       width: 100px;
       padding: 5px;
       margin-left: 10px;
     }
+
     button {
       margin-top: 20px;
       padding: 10px 20px;
@@ -31,6 +36,7 @@
       border: none;
       cursor: pointer;
     }
+
     #result {
       margin-top: 30px;
       border: 1px solid #ccc;
@@ -49,9 +55,11 @@
       body * {
         visibility: hidden;
       }
+
       #result, #result * {
         visibility: visible;
       }
+
       #result {
         position: absolute;
         top: 0;
@@ -59,12 +67,28 @@
         width: 2in;
         height: 3.1in;
         margin: 0;
-        padding: 0.1in 0.1in 0 0.1in;
+        padding: 0.08in 0.08in 0 0.08in;
         border: none;
         box-sizing: border-box;
       }
+
       #result button {
         display: none;
+      }
+
+      #result p,
+      #result h2 {
+        font-size: 13.8px !important;
+        margin: 4px 0 0 0 !important;
+      }
+
+      #result img {
+        width: 1.85in !important;
+        height: auto !important;
+        margin-bottom: 5px !important;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
       }
     }
   </style>
@@ -131,20 +155,19 @@
 
   <div id="result">
     {% if etiqueta %}
-      <img src="/static/logo.png" alt="Riversoljax Logo"
-           style="width: 1.50in; height: 1.4in; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;">
+      <img src="/static/logo.png" alt="Riversoljax Logo">
 
       {% if resumen %}
-        <p style="font-size: 12px; margin: 8px 0 6px 0; text-align: left;"><strong>Plato:</strong> {{ resumen }}</p>
+        <p><strong>Plato:</strong> {{ resumen }}</p>
       {% endif %}
 
-      <h2 style="font-size: 14px; margin: 6px 0 6px 0; text-align: left;">Etiqueta Nutricional</h2>
+      <h2><strong>Etiqueta Nutricional</strong></h2>
 
-      <p style="font-size: 12px; margin: 6px 0 0 0; text-align: left;"><strong>Calorías:</strong> {{ etiqueta.calorias | round }} kcal</p>
-      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Proteína:</strong> {{ etiqueta.proteina | round }} g</p>
-      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Grasa:</strong> {{ etiqueta.grasa | round }} g</p>
-      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Carbohidratos:</strong> {{ etiqueta.carbohidratos | round }} g</p>
-      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Sodio:</strong> {{ etiqueta.sodio | round }} mg</p>
+      <p><strong>Calorías:</strong> {{ etiqueta.calorias | round }} kcal</p>
+      <p><strong>Proteína:</strong> {{ etiqueta.proteina | round }} g</p>
+      <p><strong>Grasa:</strong> {{ etiqueta.grasa | round }} g</p>
+      <p><strong>Carbohidratos:</strong> {{ etiqueta.carbohidratos | round }} g</p>
+      <p><strong>Sodio:</strong> {{ etiqueta.sodio | round }} mg</p>
     {% endif %}
   </div>
 </body>
