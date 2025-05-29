@@ -40,7 +40,6 @@
       box-sizing: border-box;
     }
 
-    /* Print styles */
     @page {
       size: 2in 3.1in;
       margin: 0;
@@ -132,10 +131,11 @@
 
   <div id="result">
     {% if etiqueta %}
-      <img src="/static/logo.png" alt="Riversoljax Logo" style="width: 1.57in; height: 1.18in; margin-bottom: 6px; display: block; margin-left: auto; margin-right: auto;">
+      <img src="/static/logo.png" alt="Riversoljax Logo"
+           style="width: 1.50in; height: 1.4in; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;">
 
       {% if resumen %}
-        <p style="font-size: 12px; margin: 6px 0 6px 0; text-align: left;"><strong>Plato:</strong> {{ resumen }}</p>
+        <p style="font-size: 12px; margin: 8px 0 6px 0; text-align: left;"><strong>Plato:</strong> {{ resumen }}</p>
       {% endif %}
 
       <h2 style="font-size: 14px; margin: 6px 0 6px 0; text-align: left;">Etiqueta Nutricional</h2>
