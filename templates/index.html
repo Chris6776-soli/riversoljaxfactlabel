@@ -12,51 +12,40 @@
       color: #2d6a4f;
     }
     .section {
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
     label {
       display: block;
-      margin-bottom: 8px;
-    }
-    select, input[type="number"] {
-      width: 150px;
-      padding: 5px;
-      margin-left: 5px;
-    }
-    .button-row {
       margin-top: 10px;
     }
-    .button-row button {
-      margin-right: 10px;
-      padding: 8px 16px;
+    input[type="number"] {
+      width: 100px;
+      padding: 5px;
+      margin-left: 10px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
       background-color: #40916c;
       color: white;
       border: none;
       cursor: pointer;
     }
     #result {
-      margin-top: 20px;
+      margin-top: 30px;
       border: 1px solid #ccc;
       padding: 10px;
       width: 2in;
       height: 3.1in;
-      font-size: 12px;
+      box-sizing: border-box;
     }
-    #result img {
-      height: 60px;
-      display: block;
-      margin: 0 auto 10px auto;
+
+    /* Print styles */
+    @page {
+      size: 2in 3.1in;
+      margin: 0;
     }
-    #result h2 {
-      font-size: 14px;
-      text-align: left;
-      margin: 0 0 5px 0;
-      white-space: nowrap;
-    }
-    #result p {
-      margin: 4px 0;
-      text-align: left;
-    }
+
     @media print {
       body * {
         visibility: hidden;
@@ -68,6 +57,15 @@
         position: absolute;
         top: 0;
         left: 0;
+        width: 2in;
+        height: 3.1in;
+        margin: 0;
+        padding: 0.1in 0.1in 0 0.1in;
+        border: none;
+        box-sizing: border-box;
+      }
+      #result button {
+        display: none;
       }
     }
   </style>
@@ -128,24 +126,25 @@
       </label>
     </div>
 
-    <div class="button-row">
-      <button type="submit">Agregar y Calcular</button>
-      <button type="button" onclick="window.print()">Imprimir</button>
-    </div>
+    <button type="submit" style="margin-right: 10px;">Agregar y Calcular</button>
+    <button type="button" onclick="window.print()">Imprimir</button>
   </form>
 
   <div id="result">
     {% if etiqueta %}
-      <img src="/static/logo.png" alt="Riversoljax Logo">
+      <img src="/static/logo.png" alt="Riversoljax Logo" style="width: 1.57in; height: 1.18in; margin-bottom: 6px; display: block; margin-left: auto; margin-right: auto;">
+
       {% if resumen %}
-        <p><strong>Plato:</strong> {{ resumen }}</p>
+        <p style="font-size: 12px; margin: 6px 0 6px 0; text-align: left;"><strong>Plato:</strong> {{ resumen }}</p>
       {% endif %}
-      <h2>Etiqueta Nutricional</h2>
-      <p><strong>Calorías:</strong> {{ etiqueta.calorias | round }} kcal</p>
-      <p><strong>Proteína:</strong> {{ etiqueta.proteina | round }} g</p>
-      <p><strong>Grasa:</strong> {{ etiqueta.grasa | round }} g</p>
-      <p><strong>Carbohidratos:</strong> {{ etiqueta.carbohidratos | round }} g</p>
-      <p><strong>Sodio:</strong> {{ etiqueta.sodio | round }} mg</p>
+
+      <h2 style="font-size: 14px; margin: 6px 0 6px 0; text-align: left;">Etiqueta Nutricional</h2>
+
+      <p style="font-size: 12px; margin: 6px 0 0 0; text-align: left;"><strong>Calorías:</strong> {{ etiqueta.calorias | round }} kcal</p>
+      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Proteína:</strong> {{ etiqueta.proteina | round }} g</p>
+      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Grasa:</strong> {{ etiqueta.grasa | round }} g</p>
+      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Carbohidratos:</strong> {{ etiqueta.carbohidratos | round }} g</p>
+      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Sodio:</strong> {{ etiqueta.sodio | round }} mg</p>
     {% endif %}
   </div>
 </body>
