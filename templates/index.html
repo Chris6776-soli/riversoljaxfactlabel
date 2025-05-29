@@ -10,44 +10,78 @@
     }
     h1 {
       color: #2d6a4f;
-      /* Keep header centered */
-      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 250px; /* keep form a bit wider for inputs */
+      margin-bottom: 10px;
     }
     .section {
-      margin-bottom: 20px;
-      min-width: 300px;
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
     }
     label {
-      display: block;
-      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+    }
+    select, input[type="number"] {
+      margin-left: 8px;
+      font-size: 0.9rem;
+      padding: 2px 4px;
     }
     input[type="number"] {
-      width: 100px;
-      padding: 5px;
-      margin-left: 10px;
-    }
-    /* Left align buttons container */
-    .buttons-container {
-      text-align: left;
-      margin-bottom: 30px;
+      width: 50px;
     }
     button {
-      padding: 10px 20px;
+      margin-top: 10px;
+      padding: 8px 12px;
       background-color: #40916c;
       color: white;
       border: none;
       cursor: pointer;
-      margin-right: 10px;
-      font-size: 16px;
+      font-size: 1rem;
+      width: fit-content;
     }
+    #buttons-container {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
     #result {
-      margin-top: 30px;
+      width: 192px; /* 2 inches at 96dpi */
+      height: 298px; /* 3.1 inches approx */
       border: 1px solid #ccc;
-      padding: 20px;
-      width: 350px;
-      /* Align left instead of center */
-      margin-left: 0;
+      padding: 6px 8px;
+      box-sizing: border-box;
+      font-size: 0.8rem;
+      color: #000;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: left;
     }
+    #result img {
+      height: 80px;
+      margin-bottom: 8px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #result p, #result h2 {
+      margin: 3px 0;
+      line-height: 1.1;
+    }
+    #result button {
+      display: none; /* hide print button in label */
+    }
+
     @media print {
       body * {
         visibility: hidden;
@@ -59,9 +93,10 @@
         position: absolute;
         top: 0;
         left: 0;
-      }
-      #result button {
-        display: none;
+        width: 192px;
+        height: 298px;
+        border: none;
+        padding: 4px 6px;
       }
     }
   </style>
@@ -82,7 +117,8 @@
           <option value="tilapia">Tilapia</option>
           <option value="camarones">Camarones</option>
         </select>
-        Oz: <input type="number" name="proteina_gramos" min="0" value="0" />
+        Oz:
+        <input type="number" name="proteina_gramos" min="0" value="0" />
       </label>
     </div>
 
@@ -100,7 +136,8 @@
           <option value="quinoa">Quinoa</option>
           <option value="coliflor">Coliflor</option>
         </select>
-        Oz: <input type="number" name="carbohidrato_gramos" min="0" value="0" />
+        Oz:
+        <input type="number" name="carbohidrato_gramos" min="0" value="0" />
       </label>
     </div>
 
@@ -118,33 +155,24 @@
           <option value="pepino">Pepino</option>
           <option value="green_beans">Green Beans</option>
         </select>
-        Oz: <input type="number" name="vegetal_gramos" min="0" value="0" />
+        Oz:
+        <input type="number" name="vegetal_gramos" min="0" value="0" />
       </label>
     </div>
 
-    <div class="buttons-container">
+    <div id="buttons-container">
       <button type="submit">Agregar y Calcular</button>
-      {% if etiqueta %}
-        <button type="button" onclick="window.print()">Imprimir</button>
-      {% endif %}
+      <button type="button" onclick="window.print()">Imprimir</button>
     </div>
   </form>
 
   <div id="result">
     {% if etiqueta %}
-      <div style="text-align: center; margin-bottom: 15px;">
-        <img
-          src="/static/logo.png"
-          alt="Riversoljax Logo"
-          style="height: 140px"
-        />
-      </div>
-
+      <img src="/static/logo.png" alt="Riversoljax Logo" />
       {% if resumen %}
-        <p style="margin-bottom: 15px"><strong>Plato:</strong> {{ resumen }}</p>
+        <p><strong>Plato:</strong> {{ resumen }}</p>
       {% endif %}
-
-      <h2 style="margin: 0">Etiqueta Nutricional</h2>
+      <h2>Etiqueta Nutricional</h2>
       <p><strong>Calorías:</strong> {{ etiqueta.calorias | round }} kcal</p>
       <p><strong>Proteína:</strong> {{ etiqueta.proteina | round }} g</p>
       <p><strong>Grasa:</strong> {{ etiqueta.grasa | round }} g</p>
