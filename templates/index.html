@@ -160,16 +160,30 @@
            style="width: 1.50in; height: 1.4in; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;">
 
       {% if resumen %}
-        <p style="font-size: 12px; margin: 8px 0 6px 0; text-align: left;"><strong>Dish:</strong> {{ resumen }}</p>
+        <p style="font-size: 12px; margin: 8px 0 6px 0; text-align: left;">
+          <strong>{% if lang == 'es' %}Plato:{% else %}Dish:{% endif %}</strong> {{ resumen }}
+        </p>
       {% endif %}
 
-      <h2 style="font-size: 14px; margin: 6px 0 6px 0; text-align: left;">Nutrition Label</h2>
+      <h2 style="font-size: 14px; margin: 6px 0 6px 0; text-align: left;">
+        {% if lang == 'es' %}Etiqueta Nutricional{% else %}Nutrition Label{% endif %}
+      </h2>
 
-      <p style="font-size: 12px; margin: 6px 0 0 0; text-align: left;"><strong>Calories:</strong> {{ etiqueta.calorias | round }} kcal</p>
-      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Protein:</strong> {{ etiqueta.proteina | round }} g</p>
-      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Fat:</strong> {{ etiqueta.grasa | round }} g</p>
-      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Carbohydrates:</strong> {{ etiqueta.carbohidratos | round }} g</p>
-      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Sodium:</strong> {{ etiqueta.sodio | round }} mg</p>
+      <p style="font-size: 12px; margin: 6px 0 0 0; text-align: left;">
+        <strong>{% if lang == 'es' %}Calorías:{% else %}Calories:{% endif %}</strong> {{ etiqueta.calorias | round }} kcal
+      </p>
+      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;">
+        <strong>{% if lang == 'es' %}Proteína:{% else %}Protein:{% endif %}</strong> {{ etiqueta.proteina | round }} g
+      </p>
+      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;">
+        <strong>{% if lang == 'es' %}Grasa:{% else %}Fat:{% endif %}</strong> {{ etiqueta.grasa | round }} g
+      </p>
+      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;">
+        <strong>{% if lang == 'es' %}Carbohidratos:{% else %}Carbohydrates:{% endif %}</strong> {{ etiqueta.carbohidratos | round }} g
+      </p>
+      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;">
+        <strong>{% if lang == 'es' %}Sodio:{% else %}Sodium:{% endif %}</strong> {{ etiqueta.sodio | round }} mg
+      </p>
     {% endif %}
   </div>
 </body>
