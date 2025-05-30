@@ -1,12 +1,25 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Riversoljax - Etiqueta Nutricional</title>
+  <title>Riversoljax - Nutrition Label</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 30px;
+    }
+    .language-buttons {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .language-buttons button {
+      margin-left: 10px;
+      padding: 5px 10px;
+      background-color: #52b788;
+      color: white;
+      border: none;
+      cursor: pointer;
     }
     h1 {
       color: #2d6a4f;
@@ -23,7 +36,7 @@
       padding: 5px;
       margin-left: 10px;
     }
-    button {
+    button[type="submit"], button#printButton {
       margin-top: 20px;
       padding: 10px 20px;
       background-color: #40916c;
@@ -63,70 +76,82 @@
         border: none;
         box-sizing: border-box;
       }
-      #result button {
+      .language-buttons, #printButton {
         display: none;
       }
     }
   </style>
+  <script>
+    function switchLanguage(lang) {
+      const url = new URL(window.location.href);
+      url.searchParams.set('lang', lang);
+      window.location.href = url.toString();
+    }
+  </script>
 </head>
 <body>
-  <h1>Riversoljax - Etiqueta Nutricional</h1>
+  <div class="language-buttons">
+    <button onclick="switchLanguage('en')">English</button>
+    <button onclick="switchLanguage('es')">Español</button>
+  </div>
+
+  <h1>Riversoljax - Nutrition Label</h1>
 
   <form method="POST">
     <div class="section">
-      <h2>Proteína</h2>
+      <h2>Protein</h2>
       <label>
-        Selecciona:
+        Select:
         <select name="proteina">
-          <option value="">-- Elegir --</option>
-          <option value="pollo">Pollo</option>
-          <option value="res">Res</option>
-          <option value="salmon">Salmón</option>
+          <option value="">-- Choose --</option>
+          <option value="pollo">Chicken</option>
+          <option value="res">Beef</option>
+          <option value="salmon">Salmon</option>
           <option value="tilapia">Tilapia</option>
-          <option value="camarones">Camarones</option>
+          <option value="camarones">Shrimp</option>
         </select>
         Oz: <input type="number" name="proteina_gramos" min="0" value="0">
       </label>
     </div>
 
     <div class="section">
-      <h2>Carbohidratos</h2>
+      <h2>Carbohydrates</h2>
       <label>
-        Selecciona:
+        Select:
         <select name="carbohidrato">
-          <option value="">-- Elegir --</option>
-          <option value="boniato">Boniato</option>
-          <option value="papa_blanca">Papa blanca</option>
-          <option value="papa_roja">Papa roja</option>
-          <option value="arroz">Arroz blanco</option>
-          <option value="pasta">Pasta Penne Barilla Protein</option>
+          <option value="">-- Choose --</option>
+          <option value="boniato">Sweet Potato</option>
+          <option value="papa_blanca">White Potato</option>
+          <option value="papa_roja">Red Potato</option>
+          <option value="arroz">White Rice</option>
+          <option value="pasta">Penne Pasta (Barilla Protein)</option>
           <option value="quinoa">Quinoa</option>
-          <option value="coliflor">Coliflor</option>
+          <option value="coliflor">Cauliflower</option>
         </select>
         Oz: <input type="number" name="carbohidrato_gramos" min="0" value="0">
       </label>
     </div>
 
     <div class="section">
-      <h2>Vegetales</h2>
+      <h2>Vegetables</h2>
       <label>
-        Selecciona:
+        Select:
         <select name="vegetal">
-          <option value="">-- Elegir --</option>
-          <option value="brocoli">Brócoli</option>
-          <option value="zuchini">Zuchini</option>
-          <option value="esparragos">Espárragos</option>
-          <option value="coles">Coles de Bruselas</option>
-          <option value="espinacas">Espinacas</option>
-          <option value="pepino">Pepino</option>
+          <option value="">-- Choose --</option>
+          <option value="brocoli">Broccoli</option>
+          <option value="zuchini">Zucchini</option>
+          <option value="esparragos">Asparagus</option>
+          <option value="coles">Brussels Sprouts</option>
+          <option value="espinacas">Spinach</option>
+          <option value="pepino">Cucumber</option>
           <option value="green_beans">Green Beans</option>
         </select>
         Oz: <input type="number" name="vegetal_gramos" min="0" value="0">
       </label>
     </div>
 
-    <button type="submit" style="margin-right: 10px;">Agregar y Calcular</button>
-    <button type="button" onclick="window.print()">Imprimir</button>
+    <button type="submit">Add and Calculate</button>
+    <button type="button" id="printButton" onclick="window.print()">Print</button>
   </form>
 
   <div id="result">
@@ -135,16 +160,16 @@
            style="width: 1.50in; height: 1.4in; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;">
 
       {% if resumen %}
-        <p style="font-size: 12px; margin: 8px 0 6px 0; text-align: left;"><strong>Plato:</strong> {{ resumen }}</p>
+        <p style="font-size: 12px; margin: 8px 0 6px 0; text-align: left;"><strong>Dish:</strong> {{ resumen }}</p>
       {% endif %}
 
-      <h2 style="font-size: 14px; margin: 6px 0 6px 0; text-align: left;">Etiqueta Nutricional</h2>
+      <h2 style="font-size: 14px; margin: 6px 0 6px 0; text-align: left;">Nutrition Label</h2>
 
-      <p style="font-size: 12px; margin: 6px 0 0 0; text-align: left;"><strong>Calorías:</strong> {{ etiqueta.calorias | round }} kcal</p>
-      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Proteína:</strong> {{ etiqueta.proteina | round }} g</p>
-      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Grasa:</strong> {{ etiqueta.grasa | round }} g</p>
-      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Carbohidratos:</strong> {{ etiqueta.carbohidratos | round }} g</p>
-      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Sodio:</strong> {{ etiqueta.sodio | round }} mg</p>
+      <p style="font-size: 12px; margin: 6px 0 0 0; text-align: left;"><strong>Calories:</strong> {{ etiqueta.calorias | round }} kcal</p>
+      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Protein:</strong> {{ etiqueta.proteina | round }} g</p>
+      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Fat:</strong> {{ etiqueta.grasa | round }} g</p>
+      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Carbohydrates:</strong> {{ etiqueta.carbohidratos | round }} g</p>
+      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Sodium:</strong> {{ etiqueta.sodio | round }} mg</p>
     {% endif %}
   </div>
 </body>
