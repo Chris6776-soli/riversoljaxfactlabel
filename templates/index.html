@@ -8,6 +8,19 @@
       font-family: Arial, sans-serif;
       margin: 30px;
     }
+    .language-buttons {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .language-buttons button {
+      margin-left: 10px;
+      padding: 5px 10px;
+      background-color: #52b788;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
     h1 {
       color: #2d6a4f;
     }
@@ -23,7 +36,7 @@
       padding: 5px;
       margin-left: 10px;
     }
-    button {
+    button[type="submit"], button#printButton {
       margin-top: 20px;
       padding: 10px 20px;
       background-color: #40916c;
@@ -63,13 +76,25 @@
         border: none;
         box-sizing: border-box;
       }
-      #result button {
+      .language-buttons, #printButton {
         display: none;
       }
     }
   </style>
+  <script>
+    function switchLanguage(lang) {
+      const url = new URL(window.location.href);
+      url.searchParams.set('lang', lang);
+      window.location.href = url.toString();
+    }
+  </script>
 </head>
 <body>
+  <div class="language-buttons">
+    <button onclick="switchLanguage('en')">English</button>
+    <button onclick="switchLanguage('es')">Español</button>
+  </div>
+
   <h1>Riversoljax - Nutrition Label</h1>
 
   <form method="POST">
@@ -125,8 +150,8 @@
       </label>
     </div>
 
-    <button type="submit" style="margin-right: 10px;">Add and Calculate</button>
-    <button type="button" onclick="window.print()">Print</button>
+    <button type="submit">Add and Calculate</button>
+    <button type="button" id="printButton" onclick="window.print()">Print</button>
   </form>
 
   <div id="result">
