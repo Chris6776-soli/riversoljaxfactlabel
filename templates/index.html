@@ -77,15 +77,15 @@
       <h2>Protein</h2>
       <label>
         Select:
-        <select name="proteina">
+        <select name="protein">
           <option value="">-- Choose --</option>
-          <option value="pollo">Chicken</option>
-          <option value="res">Beef</option>
+          <option value="chicken">Chicken</option>
+          <option value="beef">Beef</option>
           <option value="salmon">Salmon</option>
           <option value="tilapia">Tilapia</option>
-          <option value="camarones">Shrimp</option>
+          <option value="shrimp">Shrimp</option>
         </select>
-        Oz: <input type="number" name="proteina_gramos" min="0" value="0">
+        Oz: <input type="number" name="protein_ounces" min="0" value="0">
       </label>
     </div>
 
@@ -93,17 +93,17 @@
       <h2>Carbohydrates</h2>
       <label>
         Select:
-        <select name="carbohidrato">
+        <select name="carbohydrate">
           <option value="">-- Choose --</option>
-          <option value="boniato">Sweet Potato</option>
-          <option value="papa_blanca">White Potato</option>
-          <option value="papa_roja">Red Potato</option>
-          <option value="arroz">White Rice</option>
-          <option value="pasta">Barilla Penne Protein Pasta</option>
+          <option value="sweet_potato">Sweet Potato</option>
+          <option value="white_potato">White Potato</option>
+          <option value="red_potato">Red Potato</option>
+          <option value="white_rice">White Rice</option>
+          <option value="penne_pasta">Barilla Penne Protein Pasta</option>
           <option value="quinoa">Quinoa</option>
-          <option value="coliflor">Cauliflower</option>
+          <option value="cauliflower">Cauliflower</option>
         </select>
-        Oz: <input type="number" name="carbohidrato_gramos" min="0" value="0">
+        Oz: <input type="number" name="carbohydrate_ounces" min="0" value="0">
       </label>
     </div>
 
@@ -111,17 +111,17 @@
       <h2>Vegetables</h2>
       <label>
         Select:
-        <select name="vegetal">
+        <select name="vegetable">
           <option value="">-- Choose --</option>
-          <option value="brocoli">Broccoli</option>
-          <option value="zuchini">Zucchini</option>
-          <option value="esparragos">Asparagus</option>
-          <option value="coles">Brussels Sprouts</option>
-          <option value="espinacas">Spinach</option>
-          <option value="pepino">Cucumber</option>
+          <option value="broccoli">Broccoli</option>
+          <option value="zucchini">Zucchini</option>
+          <option value="asparagus">Asparagus</option>
+          <option value="brussels_sprouts">Brussels Sprouts</option>
+          <option value="spinach">Spinach</option>
+          <option value="cucumber">Cucumber</option>
           <option value="green_beans">Green Beans</option>
         </select>
-        Oz: <input type="number" name="vegetal_gramos" min="0" value="0">
+        Oz: <input type="number" name="vegetable_ounces" min="0" value="0">
       </label>
     </div>
 
@@ -130,21 +130,21 @@
   </form>
 
   <div id="result">
-    {% if etiqueta %}
+    {% if label %}
       <img src="/static/logo.png" alt="Riversoljax Logo"
            style="width: 1.50in; height: 1.4in; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;">
 
-      {% if resumen %}
-        <p style="font-size: 12px; margin: 8px 0 6px 0; text-align: left;"><strong>Meal:</strong> {{ resumen }}</p>
+      {% if summary %}
+        <p style="font-size: 12px; margin: 8px 0 6px 0; text-align: left;"><strong>Dish:</strong> {{ summary }}</p>
       {% endif %}
 
       <h2 style="font-size: 14px; margin: 6px 0 6px 0; text-align: left;">Nutrition Label</h2>
 
-      <p style="font-size: 12px; margin: 6px 0 0 0; text-align: left;"><strong>Calories:</strong> {{ etiqueta.calorias | round }} kcal</p>
-      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Protein:</strong> {{ etiqueta.proteina | round }} g</p>
-      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Fat:</strong> {{ etiqueta.grasa | round }} g</p>
-      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Carbohydrates:</strong> {{ etiqueta.carbohidratos | round }} g</p>
-      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Sodium:</strong> {{ etiqueta.sodio | round }} mg</p>
+      <p style="font-size: 12px; margin: 6px 0 0 0; text-align: left;"><strong>Calories:</strong> {{ label.calories | round }} kcal</p>
+      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Protein:</strong> {{ label.protein | round }} g</p>
+      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Fat:</strong> {{ label.fat | round }} g</p>
+      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Carbohydrates:</strong> {{ label.carbohydrates | round }} g</p>
+      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Sodium:</strong> {{ label.sodium | round }} mg</p>
     {% endif %}
   </div>
 </body>
