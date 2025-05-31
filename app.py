@@ -35,7 +35,8 @@ def calculate_label(ingredients):
             factor = grams / 100
             for key in total:
                 total[key] += nutritional_data[name][key] * factor
-    return total
+    # Round each nutritional value to 2 decimal places
+    return {k: round(v, 2) for k, v in total.items()}
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -60,9 +61,9 @@ def index():
 
         for category, data in ingredients.items():
             name = data['name']
-            ounces = round(data['grams'] / 28.35)
+            ounces = round(data['grams'] / 28.35, 2)  # two decimal places
             if name and ounces > 0:
-                summary.append(f"{name.capitalize()} {ounces}oz")
+                summary.append(f"{name.title()} {ounces}oz")
 
     return render_template('index.html', label=label, summary=', '.join(summary))
 
