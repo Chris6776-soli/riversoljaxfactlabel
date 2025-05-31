@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Riversoljax - Nutrition Label</title>
   <style>
     body {
@@ -85,7 +85,7 @@
           <option value="tilapia">Tilapia</option>
           <option value="shrimp">Shrimp</option>
         </select>
-        Oz: <input type="number" name="protein_ounces" min="0" value="0">
+        Oz: <input type="number" name="protein_ounces" min="0" step="0.01" value="0" />
       </label>
     </div>
 
@@ -95,15 +95,15 @@
         Select:
         <select name="carbohydrate">
           <option value="">-- Choose --</option>
-          <option value="sweet_potato">Sweet Potato</option>
-          <option value="white_potato">Potato</option>
-          <option value="red_potato">Red Potato</option>
-          <option value="white_rice">White Rice</option>
-          <option value="penne_pasta">Pasta</option>
+          <option value="sweet potato">Sweet Potato</option>
+          <option value="potato">Potato</option>
+          <option value="red potato">Red Potato</option>
+          <option value="white rice">White Rice</option>
+          <option value="pasta">Pasta</option>
           <option value="quinoa">Quinoa</option>
           <option value="cauliflower">Cauliflower</option>
         </select>
-        Oz: <input type="number" name="carbohydrate_ounces" min="0" value="0">
+        Oz: <input type="number" name="carbohydrate_ounces" min="0" step="0.01" value="0" />
       </label>
     </div>
 
@@ -116,12 +116,12 @@
           <option value="broccoli">Broccoli</option>
           <option value="zucchini">Zucchini</option>
           <option value="asparagus">Asparagus</option>
-          <option value="brussels_sprouts">Brussels</option>
+          <option value="brussels">Brussels</option>
           <option value="spinach">Spinach</option>
           <option value="cucumber">Cucumber</option>
-          <option value="green_beans">Green Beans</option>
+          <option value="green beans">Green Beans</option>
         </select>
-        Oz: <input type="number" name="vegetable_ounces" min="0" value="0">
+        Oz: <input type="number" name="vegetable_ounces" min="0" step="0.01" value="0" />
       </label>
     </div>
 
@@ -132,7 +132,7 @@
   <div id="result">
     {% if label %}
       <img src="/static/logo.png" alt="Riversoljax Logo"
-           style="width: 1.50in; height: 1.4in; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;">
+           style="width: 1.50in; height: 1.4in; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;" />
 
       {% if summary %}
         <p style="font-size: 12px; margin: 8px 0 6px 0; text-align: left;"><strong>Meal:</strong> {{ summary }}</p>
@@ -140,11 +140,11 @@
 
       <h2 style="font-size: 14px; margin: 6px 0 6px 0; text-align: left;">Nutrition Label</h2>
 
-      <p style="font-size: 12px; margin: 6px 0 0 0; text-align: left;"><strong>Calories:</strong> {{ label.calories | round }} kcal</p>
-      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Protein:</strong> {{ label.protein | round }} g</p>
-      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Fat:</strong> {{ label.fat | round }} g</p>
-      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Carbohydrates:</strong> {{ label.carbohydrates | round }} g</p>
-      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Sodium:</strong> {{ label.sodium | round }} mg</p>
+      <p style="font-size: 12px; margin: 6px 0 0 0; text-align: left;"><strong>Calories:</strong> {{ label.calories | round(2) }} kcal</p>
+      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Protein:</strong> {{ label.protein | round(2) }} g</p>
+      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Fat:</strong> {{ label.fat | round(2) }} g</p>
+      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Carbohydrates:</strong> {{ label.carbohydrates | round(2) }} g</p>
+      <p style="font-size: 12px; margin: 2px 0 0 0; text-align: left;"><strong>Sodium:</strong> {{ label.sodium | round(2) }} mg</p>
     {% endif %}
   </div>
 </body>
