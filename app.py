@@ -12,7 +12,7 @@ nutritional_data = {
     "pork":        {"calories": 188, "protein": 21,  "fat": 13,   "carbohydrates": 0, "sodium": 77},
     "turkey":      {"calories": 169, "protein": 29,  "fat": 6,   "carbohydrates": 0, "sodium": 50},
 
-    "carbohydrates.":   {"calories": 71,  "protein": 2.1,   "fat": 0.2,  "carbohydrates": 18, "sodium": 2},
+    "carbs.":   {"calories": 71,  "protein": 2.1,   "fat": 0.2,  "carbohydrates": 18, "sodium": 2},
     "sweet potato":  {"calories": 92,  "protein": 1.7, "fat": 0.2,  "carbohydrates": 22, "sodium": 36},
     "potato":        {"calories": 71,  "protein": 2.1,   "fat": 0.2,  "carbohydrates": 18, "sodium": 2},
     "red potato":    {"calories": 72,  "protein": 2, "fat": 0.1,  "carbohydrates": 18, "sodium": 20},
@@ -21,7 +21,7 @@ nutritional_data = {
     "quinoa":        {"calories": 320, "protein": 10, "fat": 2,  "carbohydrates": 22, "sodium": 30},
     "cauliflower":   {"calories": 25,  "protein": 2, "fat": 0.3,  "carbohydrates": 5, "sodium": 15},
 
-    "vegetable.":      {"calories": 35,  "protein": 3, "fat": 0.4,  "carbohydrates": 6, "sodium": 0},
+    "veggies.":      {"calories": 35,  "protein": 3, "fat": 0.4,  "carbohydrates": 6, "sodium": 0},
     "broccoli":      {"calories": 35,  "protein": 3, "fat": 0.4,  "carbohydrates": 6, "sodium": 0},
     "zucchini":      {"calories": 18,  "protein": 1.2, "fat": 0.4,  "carbohydrates": 4, "sodium": 14},
     "asparagus":     {"calories": 22,  "protein": 2.4, "fat": 0,  "carbohydrates": 4, "sodium": 4},
