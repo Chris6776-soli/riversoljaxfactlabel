@@ -5,7 +5,7 @@ app = Flask(__name__)
 nutritional_data = {
     "protein.":     {"calories": 165, "protein": 30,  "fat": 3.6,  "carbohydrates": 0, "sodium": 50},
     "chicken":     {"calories": 165, "protein": 30,  "fat": 3.6,  "carbohydrates": 0, "sodium": 50},
-    "steak":       {"calories": 250, "protein": 25,  "fat": 17,   "carbohydrates": 0, "sodium": 48},
+    "beef":       {"calories": 250, "protein": 25,  "fat": 17,   "carbohydrates": 0, "sodium": 48},
     "salmon":      {"calories": 206, "protein": 20,  "fat": 13,   "carbohydrates": 0, "sodium": 76},
     "tilapia":     {"calories": 128, "protein": 26,  "fat": 2.7,  "carbohydrates": 0, "sodium": 165},
     "shrimp":      {"calories": 99,  "protein": 24,  "fat": 0.3,  "carbohydrates": 0.2, "sodium": 300},
