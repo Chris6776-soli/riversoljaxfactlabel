@@ -11,6 +11,7 @@ nutritional_data = {
     "shrimp":      {"calories": 99,  "protein": 24,  "fat": 0.3,  "carbohydrates": 0.2, "sodium": 300},
     "pork":        {"calories": 188, "protein": 21,  "fat": 13,   "carbohydrates": 0, "sodium": 77},
     "turkey":      {"calories": 169, "protein": 29,  "fat": 6,   "carbohydrates": 0, "sodium": 50},
+    "liver":      {"calories": 191, "protein": 29,  "fat": 6.5,   "carbohydrates": 3.8, "sodium": 78},
 
     "carbs.":   {"calories": 71,  "protein": 2.1,   "fat": 0.2,  "carbohydrates": 18, "sodium": 2},
     "sweet potato":  {"calories": 92,  "protein": 1.7, "fat": 0.2,  "carbohydrates": 22, "sodium": 36},
@@ -21,6 +22,7 @@ nutritional_data = {
     "quinoa":        {"calories": 320, "protein": 10, "fat": 2,  "carbohydrates": 22, "sodium": 30},
     "cauliflower":   {"calories": 25,  "protein": 2, "fat": 0.3,  "carbohydrates": 5, "sodium": 15},
 
+
     "veggies.":      {"calories": 35,  "protein": 3, "fat": 0.4,  "carbohydrates": 6, "sodium": 0},
     "broccoli":      {"calories": 35,  "protein": 3, "fat": 0.4,  "carbohydrates": 6, "sodium": 0},
     "zucchini":      {"calories": 18,  "protein": 1.2, "fat": 0.4,  "carbohydrates": 4, "sodium": 14},
@@ -29,6 +31,10 @@ nutritional_data = {
     "spinach":       {"calories": 23,  "protein": 2.9, "fat": 0.4,  "carbohydrates": 3.8, "sodium": 74},
     "cucumber":      {"calories": 16,  "protein": 0.6, "fat": 0.1,  "carbohydrates": 2.9, "sodium": 2},
     "green beans":   {"calories": 35,  "protein": 1.9, "fat": 0.2,  "carbohydrates": 7.9, "sodium": 1},
+    "cabbage":       {"calories": 23,  "protein": 1.3, "fat": 0.1,  "carbohydrates": 5.8, "sodium": 22},
+    "chard":         {"calories": 20,  "protein": 1.9, "fat": 0.2,  "carbohydrates": 4.1, "sodium": 20},
+    "kale":          {"calories": 50,  "protein": 3.3, "fat": 0.7,  "carbohydrates": 10, "sodium": 45},
+    "carrot":        {"calories": 35,  "protein": 0.8, "fat": 0,  "carbohydrates": 8.2, "sodium": 87},
 }
 
 def calculate_label(ingredients):
