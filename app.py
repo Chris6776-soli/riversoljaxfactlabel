@@ -22,7 +22,6 @@ nutritional_data = {
     "quinoa":        {"calories": 320, "protein": 10, "fat": 2,  "carbohydrates": 22, "sodium": 30},
     "cauliflower":   {"calories": 25,  "protein": 2, "fat": 0.3,  "carbohydrates": 5, "sodium": 15},
 
-
     "veggies.":      {"calories": 35,  "protein": 3, "fat": 0.4,  "carbohydrates": 6, "sodium": 0},
     "broccoli":      {"calories": 35,  "protein": 3, "fat": 0.4,  "carbohydrates": 6, "sodium": 0},
     "zucchini":      {"calories": 18,  "protein": 1.2, "fat": 0.4,  "carbohydrates": 4, "sodium": 14},
@@ -35,6 +34,9 @@ nutritional_data = {
     "chard":         {"calories": 20,  "protein": 1.9, "fat": 0.2,  "carbohydrates": 4.1, "sodium": 20},
     "kale":          {"calories": 50,  "protein": 3.3, "fat": 0.7,  "carbohydrates": 10, "sodium": 45},
     "carrot":        {"calories": 35,  "protein": 0.8, "fat": 0,  "carbohydrates": 8.2, "sodium": 87},
+
+    "egg":      {"calories": 131,  "protein": 13, "fat": 9.5,  "carbohydrates": 0.7, "sodium": 121},
+    "avocado":      {"calories": 160,  "protein": 2, "fat": 15,  "carbohydrates": 8.5, "sodium": 7},
 }
 
 def calculate_label(ingredients):
@@ -66,6 +68,10 @@ def index():
             'vegetable': {
                 'name': request.form.get('vegetable'),
                 'grams': float(request.form.get('vegetable_ounces') or 0) * 28.35
+            },
+            'extra': {
+                'name': request.form.get('extra'),
+                'grams': float(request.form.get('extra_ounces') or 0) * 28.35
             },
         }
         label = calculate_label(ingredients)
