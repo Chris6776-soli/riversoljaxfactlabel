@@ -135,6 +135,19 @@
       </label>
     </div>
 
+    <div class="section">
+      <h2>Extra</h2>
+      <label>
+        Select:
+        <select name="Extra">
+          <option value="">-- Choose --</option>
+          <option value="egg">Egg</option>
+          <option value="avocado">Avocado</option>
+        </select>
+        Oz: <input type="number" name="extra_ounces" min="0" step="0.01" value="0" />
+      </label>
+    </div>
+
     <button type="submit" style="margin-right: 10px;">Add and Calculate</button>
     <button type="button" onclick="window.print()">Print</button>
   </form>
