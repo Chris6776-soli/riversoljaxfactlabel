@@ -19,7 +19,7 @@
       margin-top: 10px;
     }
     input[type="number"] {
-      width: 100px;
+      width: 60px;
       padding: 5px;
       margin-left: 10px;
     }
@@ -136,15 +136,29 @@
     </div>
 
     <div class="section">
-      <h2>Extra</h2>
+      <h2>Extras</h2>
+      <label>
+        <input type="checkbox" name="extra" value="egg" id="extra_egg" />
+        Egg
+        Count: <input type="number" name="extra_egg_count" min="0" step="0.01" value="0" />
+      </label>
+      <label>
+        <input type="checkbox" name="extra" value="avocado" id="extra_avocado" />
+        Avocado
+        Count: <input type="number" name="extra_avocado_count" min="0" step="0.01" value="0" />
+      </label>
+    </div>
+
+    <div class="section">
+      <h2>Sauces</h2>
       <label>
         Select:
-        <select name="extra">
+        <select name="sauce">
           <option value="">-- Choose --</option>
-          <option value="egg">Egg</option>
-          <option value="avocado">Avocado</option>
+          <option value="olive_oil">Olive Oil</option>
+          <option value="dressing">Dressing</option>
         </select>
-        Oz: <input type="number" name="extra_ounces" min="0" step="0.01" value="0" />
+        Count: <input type="number" name="sauce_count" min="0" step="0.01" value="0" />
       </label>
     </div>
 
