@@ -12,6 +12,7 @@ nutritional_data = {
     "pork": {"calories": 188, "protein": 21, "fat": 13, "carbohydrates": 0, "sodium": 77},
     "turkey": {"calories": 169, "protein": 29, "fat": 6, "carbohydrates": 0, "sodium": 50},
     "liver": {"calories": 191, "protein": 29, "fat": 6.5, "carbohydrates": 5, "sodium": 72},
+    "bison": {"calories": 214.2, "protein": 18.7, "fat": 15, "carbohydrates": 0, "sodium": 49},
 
     "carbs.": {"calories": 71, "protein": 2.1, "fat": 0.2, "carbohydrates": 18, "sodium": 2},
     "sweet potato": {"calories": 92, "protein": 1.7, "fat": 0.2, "carbohydrates": 22, "sodium": 36},
@@ -21,6 +22,8 @@ nutritional_data = {
     "pasta": {"calories": 340, "protein": 17, "fat": 2, "carbohydrates": 68, "sodium": 1},
     "quinoa": {"calories": 320, "protein": 10, "fat": 2, "carbohydrates": 22, "sodium": 30},
     "cauliflower": {"calories": 25, "protein": 2, "fat": 0.3, "carbohydrates": 5, "sodium": 15},
+    "basmati rice": {"calories": 129.8, "protein": 2.7, "fat": 0, "carbohydrates": 28.5, "sodium": 5},
+    "brown rice": {"calories": 111.2, "protein": 2.3, "fat": 0, "carbohydrates": 23.5, "sodium": 5},
 
     "veggies.": {"calories": 35, "protein": 3, "fat": 0.4, "carbohydrates": 6, "sodium": 0},
     "broccoli": {"calories": 35, "protein": 3, "fat": 0.4, "carbohydrates": 6, "sodium": 0},
@@ -37,6 +40,7 @@ nutritional_data = {
 
     "egg": {"calories": 78, "protein": 6.3, "fat": 5.3, "carbohydrates": 0.6, "sodium": 62},
     "avocado": {"calories": 275, "protein": 3.3, "fat": 24.8, "carbohydrates": 14.2, "sodium": 13.2},
+    "salad": {"calories": 17, "protein": 0.3, "fat": 0, "carbohydrates": 3.3, "sodium": 10},
 
     "olive_oil": {"calories": 44, "protein": 0, "fat": 5, "carbohydrates": 0, "sodium": 0},
     "dressing": {"calories": 21.5, "protein": 0, "fat": 5, "carbohydrates": 0, "sodium": 0},
