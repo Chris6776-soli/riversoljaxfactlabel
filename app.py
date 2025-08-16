@@ -46,7 +46,7 @@ nutritional_data = {
     "dressing": {"calories": 21.5, "protein": 0, "fat": 5, "carbohydrates": 0, "sodium": 0},
 }
 
-extra_items = {"egg", "avocado"}
+extra_items = {"egg", "avocado", "salad"}
 sauce_items = {"olive_oil", "dressing"}
 
 def calculate_label(ingredients):
